@@ -132,8 +132,23 @@ $movies = [
     <div class="card-container">
       <?php foreach ($movies as $i => $movie) { ?>
         <div class="card">
-          <h3><?php echo $movie->titolo; ?></h3>
-
+          <img src="<?php echo $movie->poster; ?>" alt="locandina <?php echo $movie->titolo; ?>">
+          <h3 class="title"><?php echo $movie->titolo; ?></h3>
+          <ul class="details">
+            <li><span>Regia: </span><?php echo $movie->regista; ?></li>
+            <li><span>Casa Produttrice: </span><?php echo $movie->casa_produttrice; ?></li>
+            <li><span>Durata: </span><?php echo $movie->durata; ?> minuti</li>
+            <li class="genre"><span>Genere: </span>
+              <?php foreach ($movie->genere as $i => $gen) {
+                echo " {$gen} ";
+              } ?>
+            </li>
+            <li><span>Lingua Originale: </span><?php echo $movie->lingua_originale; ?></li>
+            <li><span>Musiche: </span><?php echo $movie->colonna_sonora; ?></li>
+            <?php if ($movie->adultsOnly()) { ?>
+              <li class="alert"><span>Consigliato ad un pubblico adulto</span></li>
+            <?php } ?>
+          </ul>
         </div>
       <?php } ?>
     </div>

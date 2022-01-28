@@ -36,7 +36,7 @@ class Movie
     $_oscar,
     $_eta_minima,
     $_piattaforme_streaming,
-    $poster
+    $_poster
   ) {
     $this->titolo = $_titolo;
     $this->titolo_originale = $_titolo_originale;
